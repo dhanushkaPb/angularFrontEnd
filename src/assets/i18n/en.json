@@ -1,0 +1,11 @@
+{
+    "NAME": "Name",
+    "ADDRESS": "Address",
+    "CONTACT": "Contact No",
+    "STUDENT_REGISTER": "Student Register",
+    "PhoneNo": "Phone No",
+    "Password": "Password",
+    "Bio": "Enter bio",
+    "TermsConditions": "I agree to terms and conditions.",
+    "Submit": "Submit"
+}
