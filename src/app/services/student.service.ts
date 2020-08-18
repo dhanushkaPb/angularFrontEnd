@@ -9,7 +9,7 @@ export class StudentService {
 
   public routesave = "http://localhost:8080/Student/products"
   public getallStudent = "http://localhost:8080/Student/student"
-  public dataToUpdate = "http://localhost:8080/Student/employees/{id}"
+  public dataToUpdate = "http://localhost:8080/Student/employees/"
   constructor(private httpClient: HttpClient) {
    }
 
@@ -19,11 +19,9 @@ export class StudentService {
    }
 
    updateStudent(updateData:any,id:number):Observable<any>{
-   
-     return this.httpClient.put<any>(this.dataToUpdate , updateData  )
  
-    
-
+     return this.httpClient.put<any>(this.dataToUpdate + id ,updateData ) 
+ 
   }
 
    getStudent(): Observable<any>{
