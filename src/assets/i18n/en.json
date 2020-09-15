@@ -7,5 +7,19 @@
     "Password": "Password",
     "Bio": "Enter bio",
     "TermsConditions": "I agree to terms and conditions.",
-    "Submit": "Submit"
+    "Submit": "Submit",
+    "LAST_NAME": "Last Name",
+    "GRADE": "Grade",
+    "CLASS": "Class",
+    "FIRST_NAME": "First Name",
+    "ARE_YOU_SURE_?": "Are You Sure?",
+    "DO_YOU_REALY_WANT_TO_DELETE_THESE_RECORDS_?":"Do You Really Want To Delete This Record",
+    "THESE_PROCESS_CANNOT_BE_UNDONE": "These Process Cannot Be Done",
+    "BUTTON": {
+        "CANCEL": "cancel",
+        "YES": "Yes"
+    }
+
+
+
 }

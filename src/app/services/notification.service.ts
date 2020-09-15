@@ -29,6 +29,14 @@ showUpdateSuccess(position: any = 'bottom-right') {
  
 }
 
+showDeleteSuccess(position: any = 'bottom-right') {
+  this.toastr.warningToastr('Delete Success.', 'Success Deleted', {
+    position: position
+    
+});
+ 
+}
+
 showUpdateError(position: any = 'bottom-right') {
   this.toastr.errorToastr('Error in Update.', 'Oops!',{
     position: position
@@ -37,6 +45,10 @@ showUpdateError(position: any = 'bottom-right') {
 
 showError() {
     this.toastr.errorToastr('Error in Save.', 'Oops!');
+}
+
+showErrorDelete() {
+  this.toastr.errorToastr('Error in Delete.', 'Oops!');
 }
 
 

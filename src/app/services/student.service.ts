@@ -10,10 +10,13 @@ export class StudentService {
   public routesave = "http://localhost:8080/Student/products"
   public getallStudent = "http://localhost:8080/Student/student"
   public dataToUpdate = "http://localhost:8080/Student/employees/"
+  public dataToDelete = "http://localhost:8080/Student/"
   constructor(private httpClient: HttpClient) {
    }
 
    saveStudent(data:any): Observable<any>{
+     console.log("abc" + data);
+     
      return this.httpClient.post<any>(this.routesave , data)
 
    }
@@ -28,4 +31,10 @@ export class StudentService {
     return this.httpClient.get<any>(this.getallStudent)
 
   }
+
+  deleteStudent(id:number):Observable<any>{
+ 
+    return this.httpClient.delete<any>(this.dataToDelete + id) ;
+
+ }
 }

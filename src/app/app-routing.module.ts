@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { StudentRegisterComponent } from './dashboard/student-register/student-register.component';
 import { ContentComponentComponent } from './content-component/content-component.component';
+import { DeleteConfirmationComponent } from './shared/delete-confirmation/delete-confirmation.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,11 @@ const routes: Routes = [
     path: 'dashboard',
     // component: StudentRegisterComponent
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  {
+    path: 'myModal', component: DeleteConfirmationComponent
   }
+
 ];
 
 @NgModule({

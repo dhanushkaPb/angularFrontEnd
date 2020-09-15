@@ -18,6 +18,9 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ToastrModule } from 'ng6-toastr-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { DeleteConfirmationComponent } from './shared/delete-confirmation/delete-confirmation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 // import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
@@ -36,6 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContentComponentComponent,
     FooterComponentComponent,
     LogoutComponentComponent,
+    DeleteConfirmationComponent,
     
     
     // ReactiveFormsModule,
@@ -60,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   }),
   ToastrModule.forRoot(),
   BrowserAnimationsModule,
+  NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

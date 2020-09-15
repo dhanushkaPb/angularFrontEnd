@@ -4,6 +4,7 @@ import { StudentRegisterComponent } from './student-register/student-register.co
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { ModalModule } from 'ngb-modal';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     CommonModule,
     DashboardRoutingModule,
-    TranslateModule
+    TranslateModule,
+    ModalModule,
     
   ]
 })
