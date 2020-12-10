@@ -1,0 +1,104 @@
+<blockquote class="blockquote text-center">
+    <p class="mb-0">{{ 'CREATE_GRADES_&_CLASSES' | translate }} <i class="fa fa-star" aria-hidden="true"></i></p>
+
+    <footer class="blockquote-footer">This Is For <cite title="Source Title">Create Grade and Classes</cite></footer>
+</blockquote>
+<div class="py-4 card mb-3 px-4">
+    <form [formGroup]="studentFormGradegroup">
+        <div class="row d-flex justify-content-around">
+            <div class="col-md-4">
+                <div class="custom-control custom-switch">
+                    <label>Create Grade</label> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                    <input type="checkbox" class="custom-control-input" (change)="changeToggle($event)"
+                        id="customSwitch1" checked>
+                    <label class="custom-control-label" for="customSwitch1">Create Class</label>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>{{ 'GRADE_NAME' | translate }}:</label>
+                    <input type="text" class="form-control" formControlName="gradenameCtrl">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>{{ 'CLASS_NAME' | translate }}:</label>
+                    <input type="text" class="form-control" formControlName="classnameCtrl">
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <hr>
+        <div class="row px-4 d-flex justify-content-end">
+            <div class="col-md-5 text-right">
+                <button class="btn btn-danger mx-2" (click)="cancelForm()">Cancel</button>
+                <button class="btn btn-primary mx-2" (click)="saveData()">{{btnTextChange}}</button>
+            </div>
+        </div>
+    </form>
+
+    <div>
+        <hr>
+    </div>
+    <!--Table-->
+    <div class="row mt-1">
+
+        <div class="col-md-6">
+            <table class="table table-box-shadow">
+                <thead>
+                    <tr class="header-row">
+                        <th class="header-cell no-padding text-small">#</th>
+                        <th class="header-cell no-padding text-small">Grade Name</th>
+                        <th class="header-cell no-padding text-small">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let grade of gradeList;let i = index;">
+                        <td class="cell">{{ i+1 }}</td>
+                        <td class="cell">{{ grade.grade_name }}</td>
+                        <!-- <td class="cell">{{ toPrice(cover.coverValue) }}</td> -->
+                        <td class="cell">
+                            <button class="btn user-btn btn-delete btn-sm mx-1" (click)="deleteGrade(grade.id)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </div>
+
+
+        <div class="col-md-6">
+            <table class="table table-box-shadow">
+                <thead>
+                    <tr class="header-row">
+                        <th class="header-cell no-padding text-small">#</th>
+                        <th class="header-cell no-padding text-small">Class Name</th>
+                        <th class="header-cell no-padding text-small">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let class of classList;let i = index;">
+                        <td class="cell">{{ i+1 }}</td>
+                        <td class="cell">{{ class.class_name }}</td>
+                        <td class="cell">
+                            <button class="btn user-btn btn-delete btn-sm mx-1" (click)="deleteClass(class.id)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+
+</div>

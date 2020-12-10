@@ -5,6 +5,8 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
 @media (min-width: 576px){
     .modal-dialog {
        //max-width: 370px !important;

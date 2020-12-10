@@ -4,6 +4,7 @@ import { StudentService } from '../../services/student.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteConfirmationComponent } from 'src/app/shared/delete-confirmation/delete-confirmation.component';
+import { GradeClassService } from 'src/app/services/grade-class.service';
 
 
 @Component({
@@ -27,10 +28,15 @@ export class StudentRegisterComponent implements OnInit {
 
   public studentListTable = []
 
+  public gradelist:Array<any> = []
+
+  public classList:Array<any> = []
+
   constructor(private studentservice: StudentService,
-     private formbuilder: FormBuilder, 
-     private notifications: NotificationService,
-     private modalService: NgbModal,
+    private gradeclassservice:GradeClassService,
+    private formbuilder: FormBuilder,
+    private notifications: NotificationService,
+    private modalService: NgbModal,
 
   ) { }
 
@@ -38,6 +44,8 @@ export class StudentRegisterComponent implements OnInit {
 
     this.setForm();
     this.getStudentList();
+    this.loadGradeListTable();
+    this.loadClassListTable();
   }
 
   setForm() {
@@ -48,15 +56,15 @@ export class StudentRegisterComponent implements OnInit {
       lastnameCtrl: '',
       gradeCtrl: '',
       classCtrl: ''
-   
+
 
     })
   }
 
   cancelForm() {
 
-      this.studentFormGroup.reset();
-      this.btnTextChange = "Save"
+    this.studentFormGroup.reset();
+    this.btnTextChange = "Save"
 
   }
 
@@ -74,9 +82,9 @@ export class StudentRegisterComponent implements OnInit {
 
       }
 
-   
-    
-      
+
+
+
       this.studentservice.saveStudent(Formlist).subscribe((res) => {
         this.notifications.showSuccess();
         this.studentFormGroup.reset();
@@ -142,17 +150,37 @@ export class StudentRegisterComponent implements OnInit {
 
     const modalRef = this.modalService.open(DeleteConfirmationComponent);
     modalRef.result.then(data => { }, (result) => {
-    if (result) {
-    this.studentservice.deleteStudent(data.id).subscribe((res) => {
-      this.notifications.showDeleteSuccess();
-      this.studentFormGroup.reset();
-      this.getStudentList();
+      if (result) {
+        this.studentservice.deleteStudent(data.id).subscribe((res) => {
+          this.notifications.showDeleteSuccess();
+          this.studentFormGroup.reset();
+          this.getStudentList();
 
-    }, (err) => {
-      this.notifications.showErrorDelete();
+        }, (err) => {
+          this.notifications.showErrorDelete();
+        });
+      }
     });
   }
-});
-}
+
+  loadGradeListTable(){
+
+    this.gradeclassservice.getGrade().subscribe((res)=>{
+      this.gradelist = res;
+      this.notifications.showSuccessTable();
+    })
+
+  }
+
+  loadClassListTable(){
+
+    this.gradeclassservice.getClasses().subscribe((res)=>{
+      this.classList = res;
+      this.notifications.showSuccessTable();
+    })
+
+
+  }
+
 
 }

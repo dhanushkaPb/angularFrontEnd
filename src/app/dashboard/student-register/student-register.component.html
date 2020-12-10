@@ -1,9 +1,9 @@
 <blockquote class="blockquote text-center">
     <p class="mb-0">{{ 'STUDENT_REGISTER' | translate }}</p>
     <footer class="blockquote-footer">This Is For <cite title="Source Title">Register Students</cite></footer>
-  </blockquote>
+</blockquote>
 <div class="py-4 card mb-3 px-4">
-    <form [formGroup]="studentFormGroup" >
+    <form [formGroup]="studentFormGroup">
         <div class="row d-flex justify-content-around">
             <div class="col-md-4">
                 <div class="form-group">
@@ -22,25 +22,31 @@
             <div class="col-md-4">
                 <label>{{ 'ADDRESS' | translate }}:</label>
                 <input type="text" class="form-control" formControlName="addressCtrl">
-                
+
             </div>
 
             <div class="col-md-4">
                 <label>{{ 'CONTACT' | translate }}:</label>
                 <input type="text" class="form-control" formControlName="contactCtrl">
-                
+
             </div>
 
             <div class="col-md-4">
                 <label>{{ 'GRADE' | translate }}:</label>
-                <input type="text" class="form-control" formControlName="gradeCtrl">
-                
+
+                <ng-select formControlName="gradeCtrl" [items]="gradelist" [searchable]="true" bindLabel="grade_name"
+                    bindValue="grade_name" placeholder="select Grade">
+
+                </ng-select>
             </div>
 
             <div class="col-md-4">
                 <label>{{ 'CLASS' | translate }}:</label>
-                <input type="text" class="form-control" formControlName="classCtrl">
-                
+                <ng-select formControlName="classCtrl" [items]="classList" [searchable]="true" bindLabel="class_name"
+                    bindValue="class_name" placeholder="select Class">
+
+                </ng-select>
+
             </div>
         </div>
 
@@ -78,54 +84,51 @@
         </div>
     </form>
 
-<div>
-    <hr>
-</div>
+    <div>
+        <hr>
+    </div>
     <!--Table-->
     <div class="py-4 card mb-3 px-4">
-<table class="table table-striped w-auto">
+        <table class="table table-striped w-auto">
 
-    <!--Table head-->
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>Contact</th>
-        <th>Grade</th>
-        <th>Class</th>
-        <th class="text-center">Action</th>
-      </tr>
-    </thead>
-    <!--Table head-->
-  
-    <!--Table body-->
-    <tbody>
-      <tr  *ngFor="let student of studentListTable; index as i">
-        <th scope="row">{{ i + 1 }}</th>
-        <td>{{ student.first_name }}</td>
-        <td>{{ student.last_name }}</td>
-        <td>{{ student.address }}</td>
-        <td>{{ student.contact }}</td>
-        <td>{{ student.st_grade }}</td>
-        <td>{{ student.st_class }}</td>
-        <td class="text-center">
-            <button type="button" class="btn btn-primary btn-sm" (click)="openEditDialog(student)"><i
-                class="fa fa-edit"></i>
-            </button>
-            &nbsp;
-            <button type="button" class="btn btn-danger btn-sm" (click)="openDeleteDialog(student)"><i
-                class="fa fa-trash"></i>
-            </button>
-          </td>
-      </tr>  
-    </tbody>
-    <!--Table body-->
-  </table>
-</div>
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>Grade</th>
+                    <th>Class</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <!--Table head-->
 
-
-
+            <!--Table body-->
+            <tbody>
+                <tr *ngFor="let student of studentListTable; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ student.first_name }}</td>
+                    <td>{{ student.last_name }}</td>
+                    <td>{{ student.address }}</td>
+                    <td>{{ student.contact }}</td>
+                    <td>{{ student.st_grade }}</td>
+                    <td>{{ student.st_class }}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-primary btn-sm" (click)="openEditDialog(student)"><i
+                                class="fa fa-edit"></i>
+                        </button>
+                        &nbsp;
+                        <button type="button" class="btn btn-danger btn-sm" (click)="openDeleteDialog(student)"><i
+                                class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <!--Table body-->
+        </table>
+    </div>
 
 </div>

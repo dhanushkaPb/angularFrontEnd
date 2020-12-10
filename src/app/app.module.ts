@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DeleteConfirmationComponent } from './shared/delete-confirmation/delete-confirmation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 // import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -54,6 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     DashboardModule,
+    // NgSelectModule,
+    FormsModule,
     
     TranslateModule.forRoot({
       loader: {

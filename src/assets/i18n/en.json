@@ -13,13 +13,13 @@
     "CLASS": "Class",
     "FIRST_NAME": "First Name",
     "ARE_YOU_SURE_?": "Are You Sure?",
-    "DO_YOU_REALY_WANT_TO_DELETE_THESE_RECORDS_?":"Do You Really Want To Delete This Record",
+    "DO_YOU_REALY_WANT_TO_DELETE_THESE_RECORDS_?": "Do You Really Want To Delete This Record",
     "THESE_PROCESS_CANNOT_BE_UNDONE": "These Process Cannot Be Done",
     "BUTTON": {
         "CANCEL": "cancel",
         "YES": "Yes"
-    }
-
-
-
+    },
+    "CREATE_GRADES_&_CLASSES":"Create Grades and Classes",
+    "GRADE_NAME":"Grade Name",
+    "CLASS_NAME":"Class Name"
 }

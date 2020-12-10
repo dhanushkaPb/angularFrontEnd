@@ -5,12 +5,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { ModalModule } from 'ngb-modal';
+import { GradeCreationComponent } from './grade-creation/grade-creation.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
   declarations: [
    
-    StudentRegisterComponent
+    StudentRegisterComponent,
+   
+    GradeCreationComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -19,6 +23,8 @@ import { ModalModule } from 'ngb-modal';
     DashboardRoutingModule,
     TranslateModule,
     ModalModule,
+    NgSelectModule,
+    FormsModule
     
   ]
 })
