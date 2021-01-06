@@ -5,6 +5,8 @@ import { NotificationService } from 'src/app/services/notification.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteConfirmationComponent } from 'src/app/shared/delete-confirmation/delete-confirmation.component';
 import { GradeClassService } from 'src/app/services/grade-class.service';
+import { LoginPageComponent } from 'src/app/login-page/login-page.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -37,6 +39,7 @@ export class StudentRegisterComponent implements OnInit {
     private formbuilder: FormBuilder,
     private notifications: NotificationService,
     private modalService: NgbModal,
+    private router: Router
 
   ) { }
 
@@ -179,6 +182,13 @@ export class StudentRegisterComponent implements OnInit {
       this.notifications.showSuccessTable();
     })
 
+
+  }
+
+  do(){
+
+    // this.router.navigate(['login'])
+    this.router.navigate(['signup']);
 
   }
 

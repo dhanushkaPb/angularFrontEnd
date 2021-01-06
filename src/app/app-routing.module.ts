@@ -4,11 +4,13 @@ import { IndexComponent } from './index/index.component';
 import { StudentRegisterComponent } from './dashboard/student-register/student-register.component';
 import { ContentComponentComponent } from './content-component/content-component.component';
 import { DeleteConfirmationComponent } from './shared/delete-confirmation/delete-confirmation.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 const routes: Routes = [
   {
-    path: '', component: ContentComponentComponent
+    path: '', component: LoginPageComponent
   },
   {
     path: 'dashboard',
@@ -17,7 +19,16 @@ const routes: Routes = [
   },
   {
     path: 'myModal', component: DeleteConfirmationComponent
-  }
+  },
+  {
+
+    path: 'login', component:LoginPageComponent
+  },
+  {
+
+    path: 'signup', component:SignUpComponent
+  },
+ 
 
 ];
 
